@@ -50,37 +50,37 @@ If you run into a problem or have a question, contact me ([contact form](http://
 ###1. Menu view from the front-end of your site.
 ###
 ![Menu view from the front-end of your site.
-](http://s.wordpress.org/plugins/plugin-name/screenshot-1.png)
+](https://raw.github.com/jtsternberg/Enhanced-Admin-Bar-with-Codex-Search/master/screenshot-1.png)
 
 ###2. Menu view from WordPress Admin back-end.
 ###
 ![Menu view from WordPress Admin back-end.
-](http://s.wordpress.org/plugins/plugin-name/screenshot-2.png)
+](https://raw.github.com/jtsternberg/Enhanced-Admin-Bar-with-Codex-Search/master/screenshot-2.png)
 
 ###3. Options page for selecting which features are enabled.
 ###
 ![Options page for selecting which features are enabled.
-](http://s.wordpress.org/plugins/plugin-name/screenshot-3.png)
+](https://raw.github.com/jtsternberg/Enhanced-Admin-Bar-with-Codex-Search/master/screenshot-3.png)
 
 ###4. View of WordPress built-in menu system with a custom menu added to the Admin Bar.
 ###
 ![View of WordPress built-in menu system with a custom menu added to the Admin Bar.
-](http://s.wordpress.org/plugins/plugin-name/screenshot-4.png)
+](https://raw.github.com/jtsternberg/Enhanced-Admin-Bar-with-Codex-Search/master/screenshot-4.png)
 
 ###5. View of Admin Bar with custom menu added.
 ###
 ![View of Admin Bar with custom menu added.
-](http://s.wordpress.org/plugins/plugin-name/screenshot-5.png)
+](https://raw.github.com/jtsternberg/Enhanced-Admin-Bar-with-Codex-Search/master/screenshot-5.png)
 
 ###6. Codex search functions like new search box in 3.3 admin bar.
 ###
 ![Codex search functions like new search box in 3.3 admin bar.
-](http://s.wordpress.org/plugins/plugin-name/screenshot-6.png)
+](https://raw.github.com/jtsternberg/Enhanced-Admin-Bar-with-Codex-Search/master/screenshot-6.png)
 
 ###7. View of admin bar on front-end with Genesis menu option enabled.
 ###
 ![View of admin bar on front-end with Genesis menu option enabled.
-](http://s.wordpress.org/plugins/plugin-name/screenshot-7.png)
+](https://raw.github.com/jtsternberg/Enhanced-Admin-Bar-with-Codex-Search/master/screenshot-7.png)
 
 
 ## Changelog ##
