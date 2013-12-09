@@ -3,7 +3,7 @@
 **Contributors:** jtsternberg, underblob  
 **Plugin Name:** Enhanced Admin Bar with Codex Search and Custom Menus  
 **Plugin URI:** http://dsgnwrks.pro/enhanced-admin-bar-with-codex-search/  
-**Tags:** Admin Bar, Codex Search, Search, Admin, adminbar, bar, topbar, plugin search, dashboard widget, wpbeginner, custom menu, menus, forum search, genesis  
+**Tags:** Admin Bar, Codex Search, Search, Admin, adminbar, bar, topbar, plugin search, wpbeginner, custom menu, menus, forum search, genesis  
 **Author URI:** http://dsgnwrks.pro/enhanced-admin-bar-with-codex-search/  
 **Author:** DsgnWrks  
 **Donate link:** http://j.ustin.co/rYL89n  
@@ -25,7 +25,6 @@ If that's not enough link goodness for you, the plugin now has the option for a 
 
 Other plugin features:
 	* if you use the Genesis theme framework, a custom Genesis menu can be added to the admin bar. (for more enhanced functionality regarding Genesis admin bar menus, see [GaryJ](http://profiles.wordpress.org/users/GaryJ)'s excellent plugin, [Genesis Admin Bar Plus](http://wordpress.org/extend/plugins/genesis-admin-bar-plus))
-	*  Includes option for a dashboard widget that conveniently displays info about the currently active theme.
 	* Turn wpbeginner.com search and WordPress support forums search on/off.
 	* Turn on/off admin bar features on the front-end or the admin side.
 
@@ -38,9 +37,6 @@ Other plugin features:
 4. If you have enabled the custom menu option, navigate to "Menus" under "Appearance." You'll see a theme location, "Admin Bar Custom Navigation Menu" where you can attach a custom menu.
 
 ## Frequently Asked Questions ##
-
-### Can I enable/disable dashboard widget? ###
-**YES!** Plugin now includes an option page to control which features are enabled. Dashboard widget is off by default.
 
 ### ?? ###
 If you run into a problem or have a question, contact me ([contact form](http://j.ustin.co/scbo43) or [@jtsternberg on twitter](http://j.ustin.co/wUfBD3)). I'll add them here.
