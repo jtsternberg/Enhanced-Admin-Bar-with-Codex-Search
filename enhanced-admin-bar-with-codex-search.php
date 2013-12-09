@@ -6,8 +6,8 @@ Description: This plugin adds convenient search fields to provide easy access to
 Author URI: http://dsgnwrks.pro
 Author: DsgnWrks
 Donate link: http://j.ustin.co/rYL89n
-Stable tag: 2.0.5.2
-Version: 2.0.5.2
+Stable tag: 2.0.5.3
+Version: 2.0.5.3
 */
 
 
@@ -30,7 +30,7 @@ function dsgnwrks_adminbar_init() {
 }
 add_action('admin_menu', 'dsgnwrks_adminbar_settings');
 function dsgnwrks_adminbar_settings() {
-    add_options_page('Enhanced Admin Bar Settings', 'Enhanced Admin Bar Settings', 'manage_options', 'eab-importer-settings', 'eab_importer_settings');
+    add_options_page( __( 'Enhanced Admin Bar Settings', 'eab' ),  __( 'Enhanced Admin Bar Settings', 'eab' ), 'manage_options', 'eab-importer-settings', 'eab_importer_settings');
 }
 
 function eab_importer_settings() { require_once('eab-settings.php'); }
@@ -46,7 +46,7 @@ function dweab_body_class( $classes ) {
 add_action('wp_enqueue_scripts', 'dsgnwrks_adminbar_search_css');
 add_action('admin_enqueue_scripts', 'dsgnwrks_adminbar_search_css');
 function dsgnwrks_adminbar_search_css() {
-	wp_enqueue_style('adminbar_search_css', plugins_url('css/adminbar_search.css', __FILE__));
+	wp_enqueue_style( 'adminbar_search', plugins_url('css/adminbar_search.css', __FILE__), null, '2.0.5.3' );
 }
 
 add_action('admin_head', 'dsgnwrks_adminbar_genesis_fix');
@@ -64,7 +64,7 @@ function dsgnwrks_adminbar_nav() {
 	// Add custom menu option if selected
 	if ( get_option( 'eab-custom-menu' ) ) {
 		register_nav_menus( array(
-			'admin_bar_nav' => __( 'Admin Bar Custom Navigation Menu' ),
+			'admin_bar_nav' => __( 'Admin Bar Custom Navigation Menu', 'eab' ),
 		) );
 	}
 
@@ -80,10 +80,8 @@ function dsgnwrks_adminbar_menu_init() {
  	add_action( 'admin_bar_menu', 'dsgnwrks_admin_bar_menu', 1000 );
 }
 
-$eab_go_button = '<input type="submit" value="Go" class="button dw_search_go"  /></form>';
 function dsgnwrks_admin_bar_menu() {
 	global $wp_admin_bar;
-	global $eab_go_button;
 
 	// Add a custom menu option
 	if ( $eab_custom_menu = get_option( 'eab-custom-menu' ) ) {
@@ -95,7 +93,7 @@ function dsgnwrks_admin_bar_menu() {
 		    if ( $menu_items ) {
 			    $wp_admin_bar->add_menu( array(
 					'id' => 'dsgnwrks-admin-menu-0',
-					'title' => 'Enhanced Admin Bar Custom Menu',
+					'title' => __( 'Enhanced Admin Bar Custom Menu', 'eab' ),
 					'href' => '#' )
 			    );
 			    foreach ( $menu_items as $menu_item ) {
@@ -123,9 +121,9 @@ function dsgnwrks_admin_bar_menu() {
 	$eab_wp_beginner = get_option( 'eab-wp-beginner' );
 
 	if ( is_admin() && $eab_admin_searches ) {
-		dsgnwrks_menu_init( $eab_wp_forums, $eab_wp_beginner, $eab_go_button );
+		dsgnwrks_menu_init( $eab_wp_forums, $eab_wp_beginner );
 	} elseif ( $codex_search_submenu ) {
-		dsgnwrks_menu_init( $eab_wp_forums, $eab_wp_beginner, $eab_go_button );
+		dsgnwrks_menu_init( $eab_wp_forums, $eab_wp_beginner );
 	}
 
 	$show_menus = (
@@ -164,7 +162,7 @@ function dsgnwrks_admin_bar_menu() {
 			<input type="hidden" name="post_status" value="all"/>
 			<input type="hidden" name="post_type" value="' . $action[ 4 ] . '"/>
 			<input type="text" placeholder="Search ' . $action[ 0 ] . '" onblur="this.value=(this.value==\'\') ? \'Search ' . $action[ 0 ] . '\' : this.value;" onfocus="this.value=(this.value==\'Search ' . $action[ 0 ] . '\') ? \'\' : this.value;" value="Search ' . $action[ 0 ] . '" name="s" value="' . esc_attr( 'Search ' . $action[ 0 ] ) . '" class="text dw_search_input" />
-			' . $eab_go_button;
+			<input type="submit" value="Go" class="button dw_search_go"  /></form>';
 
 		if ( is_admin() && $eab_admin_searches ) {
 
@@ -208,65 +206,65 @@ function dsgnwrks_admin_bar_menu() {
 		$wp_admin_bar->add_menu( array(
 		'id' => 'settings_stuff',
 		'parent' => 'dsgnwrks_help_menu',
-		'title' => __( 'Settings'),
+		'title' => __( 'Settings' ),
 		'href' => admin_url('options-general.php') ) );
 
 		$wp_admin_bar->add_menu( array(
 		'id' => 'settings_stuff_writing',
 		'parent' => 'settings_stuff',
-		'title' => __( 'Writing'),
+		'title' => __( 'Writing' ),
 		'href' => admin_url('options-writing.php') ) );
 
 		$wp_admin_bar->add_menu( array(
 		'id' => 'settings_stuff_reading',
 		'parent' => 'settings_stuff',
-		'title' => __( 'Reading'),
+		'title' => __( 'Reading' ),
 		'href' => admin_url('options-reading.php') ) );
 
 		$wp_admin_bar->add_menu( array(
 		'id' => 'settings_stuff_discussion',
 		'parent' => 'settings_stuff',
-		'title' => __( 'Discussion'),
+		'title' => __( 'Discussion' ),
 		'href' => admin_url('options-discussion.php') ) );
 
 		$wp_admin_bar->add_menu( array(
 		'id' => 'settings_stuff_media',
 		'parent' => 'settings_stuff',
-		'title' => __( 'Media'),
+		'title' => __( 'Media' ),
 		'href' => admin_url('options-media.php') ) );
 
 		$wp_admin_bar->add_menu( array(
 		'id' => 'settings_stuff_privacy',
 		'parent' => 'settings_stuff',
-		'title' => __( 'Privacy'),
+		'title' => __( 'Privacy' ),
 		'href' => admin_url('options-privacy.php') ) );
 
 		$wp_admin_bar->add_menu( array(
 		'id' => 'settings_stuff_permalinks',
 		'parent' => 'settings_stuff',
-		'title' => __( 'Permalinks'),
+		'title' => __( 'Permalinks' ),
 		'href' => admin_url('options-permalink.php') ) );
 
 	}
 }
 
-function dsgnwrks_menu_init( $eab_wp_forums='', $eab_wp_beginner='', $eab_go_button ) {
+function dsgnwrks_menu_init( $eab_wp_forums='', $eab_wp_beginner='' ) {
 	global $wp_admin_bar;
 
 	// Add codex and plugin search menu items
 	if ( is_super_admin () ) {
 		$wp_admin_bar->add_menu( array(
 		'id' => 'dsgnwrks_help_menu',
-		'title' => '<span class="dw_search_input" id="dwspacer">Search the Codex</span>',
+		'title' => '<span class="dw_search_input" id="dwspacer">'. __( 'Search the Codex', 'eab' ) .'</span>',
 		'href' => '#' ) );
 
 		$wp_admin_bar->add_menu( array(
 		'id' => 'dsgnwrks_help_menu_search_codex',
 		'parent' => 'dsgnwrks_help_menu',
 		'title' => '
-		<strong style="display:none;">Search the Codex</strong>
+		<strong style="display:none;">'. __( 'Search the Codex', 'eab' ) .'</strong>
 		<form target="_blank" action="http://wordpress.org/search/" method="get" class="alignleft dw_search admin-bar-search">
-			<input type="text" onblur="this.value=(this.value==\'\') ? \'Search the Codex\' : this.value;" onfocus="this.value=(this.value==\'Search the Codex\') ? \'\' : this.value;" value="Search the Codex" name="s" class="text dw_search_input adminbar-input" >
+			<input type="text" onblur="this.value=(this.value==\'\') ? \''. __( 'Search the Codex', 'eab' ) .'\' : this.value;" onfocus="this.value=(this.value==\''. __( 'Search the Codex', 'eab' ) .'\') ? \'\' : this.value;" value="'. __( 'Search the Codex', 'eab' ) .'" name="s" class="text dw_search_input adminbar-input" >
 			<input type="submit" class="button dw_search_go" value="Go">
 		</form>
 		',
@@ -276,10 +274,10 @@ function dsgnwrks_menu_init( $eab_wp_forums='', $eab_wp_beginner='', $eab_go_but
 			'id' => 'dsgnwrks_help_menu_search_forum',
 			'parent' => 'dsgnwrks_help_menu',
 			'title' => __( '
-			<strong style="display:none;">Search WordPress Support Forums</strong>
+			<strong style="display:none;">'. __( 'Search WordPress Support Forums', 'eab' ) .'</strong>
 			<form target="_blank" method="get" action="http://wordpress.org/search/" class="alignleft dw_search" >
-				<input type="text" onblur="this.value=(this.value==\'\') ? \'Search WP Forums\' : this.value;" onfocus="this.value=(this.value==\'Search WP Forums\') ? \'\' : this.value;" value="Search WP Forums" name="s" class="text dw_search_input" >
-			'.$eab_go_button),
+				<input type="text" onblur="this.value=(this.value==\'\') ? \''. __( 'Search WP Forums', 'eab' ) .'\' : this.value;" onfocus="this.value=(this.value==\''. __( 'Search WP Forums', 'eab' ) .'\') ? \'\' : this.value;" value="'. __( 'Search WP Forums', 'eab' ) .'" name="s" class="text dw_search_input" >
+			<input type="submit" value="Go" class="button dw_search_go"  /></form>'),
 			'href' => '#' ) );
 		}
 
@@ -288,10 +286,10 @@ function dsgnwrks_menu_init( $eab_wp_forums='', $eab_wp_beginner='', $eab_go_but
 			'id' => 'dsgnwrks_help_menu_wpbeginner',
 			'parent' => 'dsgnwrks_help_menu',
 			'title' => __( '
-			<strong style="display:none;">Search wpbeginner.com</strong>
+			<strong style="display:none;">'. __( 'Search wpbeginner.com', 'eab' ) .'</strong>
 			<form target="_blank" method="get" action="http://www.wpbeginner.com/" class="alignleft dw_search" >
-				<input type="text" onblur="this.value=(this.value==\'\') ? \'Search wpbeginner.com\' : this.value;" onfocus="this.value=(this.value==\'Search wpbeginner.com\') ? \'\' : this.value;" value="Search wpbeginner.com" name="s" class="text dw_search_input" >
-			'.$eab_go_button),
+				<input type="text" onblur="this.value=(this.value==\'\') ? \''. __( 'Search wpbeginner.com', 'eab' ) .'\' : this.value;" onfocus="this.value=(this.value==\''. __( 'Search wpbeginner.com', 'eab' ) .'\') ? \'\' : this.value;" value="'. __( 'Search wpbeginner.com', 'eab' ) .'" name="s" class="text dw_search_input" >
+			<input type="submit" value="Go" class="button dw_search_go"  /></form>'),
 			'href' => '#' ) );
 		}
 
@@ -329,13 +327,10 @@ function dsgnwrks_menu_init( $eab_wp_forums='', $eab_wp_beginner='', $eab_go_but
 	} else {
 		$wp_admin_bar->add_menu( array(
 			'id' 		=> 'dsgnwrks_help_menu',
-			'title' 	=> __( '&emsp;Quick Search&emsp;' ),
+			'title' 	=> __( '&emsp;Quick Search&emsp;', 'eab' ),
 			'href' 		=> '#'
 		) );
-
 	}
-
-
 
 }
 
@@ -343,17 +338,16 @@ function dsgnwrks_add_plugins_menus() {
 	if ( ! current_user_can( 'edit_plugins' ) ) 	return;
 
 	global $wp_admin_bar;
-	global $eab_go_button;
 
-	$plugins_title 			= 'Plugins';
-	$plugins_upload 		= 'Upload Plugin';
-	$plugins_searchform 	= '
-		<strong style="display:none;">Search Plugins</strong>
+	$plugins_title      = __( 'Plugins' );
+	$plugins_upload     = __( 'Upload Plugin' );
+	$plugins_searchform = '
+		<strong style="display:none;">'. __( 'Search Plugins', 'eab' ) .'</strong>
 		<form method="get" action="' . admin_url( 'plugin-install.php?tab=search' ) . '"  class="alignleft dw_search" >
 		<input type="hidden" name="tab" value="search"/>
 		<input type="hidden" name="type" value="term"/>
-		<input type="text" placeholder="Search Plugins" onblur="this.value=(this.value==\'\') ? \'Search Plugins\' : this.value;" onfocus="this.value=(this.value==\'Search Plugins\') ? \'\' : this.value;" value="Search Plugins" name="s" value="' . esc_attr( 'Search Plugins' ) . '" class="text dw_search_input" />
-		' . $eab_go_button;
+		<input type="text" placeholder="'. __( 'Search Plugins', 'eab' ) .'" onblur="this.value=(this.value==\'\') ? \''. __( 'Search Plugins', 'eab' ) .'\' : this.value;" onfocus="this.value=(this.value==\''. __( 'Search Plugins', 'eab' ) .'\') ? \'\' : this.value;" value="'. __( 'Search Plugins', 'eab' ) .'" name="s" value="' . esc_attr( ''. __( 'Search Plugins', 'eab' ) .'' ) . '" class="text dw_search_input" />
+		<input type="submit" value="Go" class="button dw_search_go"  /></form>';
 
 	if ( is_admin() ) {
 		$wp_admin_bar->add_menu( array(
@@ -395,17 +389,16 @@ function dsgnwrks_add_themes_menus() {
 	if ( ! current_user_can( 'edit_themes' ) ) 		return;
 
 	global $wp_admin_bar;
-	global $eab_go_button;
 
-	$themes_title 		= 'Themes';
-	$themes_upload 		= 'Upload Theme';
-	$themes_searchform 	= '
-		<strong style="display:none;">Search Themes</strong>
+	$themes_title      = __( 'Themes' );
+	$themes_upload     = __( 'Upload Theme' );
+	$themes_searchform = '
+		<strong style="display:none;">'. __( 'Search Themes', 'eab' ) .'</strong>
 		<form method="get" action="'.admin_url('theme-install.php?tab=search').'"  class="alignleft dw_search" >
 		<input type="hidden" name="tab" value="search"/>
 		<input type="hidden" name="type" value="term"/>
-		<input type="text" placeholder="Search Themes" onblur="this.value=(this.value==\'\') ? \'Search Themes\' : this.value;" onfocus="this.value=(this.value==\'Search Themes\') ? \'\' : this.value;" value="Search Themes" name="s" value="' . esc_attr('Search Themes') . '" class="text dw_search_input" />
-		' . $eab_go_button;
+		<input type="text" placeholder="'. __( 'Search Themes', 'eab' ) .'" onblur="this.value=(this.value==\'\') ? \''. __( 'Search Themes', 'eab' ) .'\' : this.value;" onfocus="this.value=(this.value==\''. __( 'Search Themes', 'eab' ) .'\') ? \'\' : this.value;" value="'. __( 'Search Themes', 'eab' ) .'" name="s" value="' . esc_attr(''. __( 'Search Themes', 'eab' ) .'') . '" class="text dw_search_input" />
+		<input type="submit" value="Go" class="button dw_search_go"  /></form>';
 
 	if ( is_admin() ) {
 		$wp_admin_bar->add_menu( array(
@@ -446,18 +439,17 @@ function dsgnwrks_add_media_menus() {
 	if ( ! current_user_can( 'upload_files' ) ) 	return;
 
 	global $wp_admin_bar;
-	global $eab_go_button;
 
-	$media_title 		= 'Media';
-	$media_upload 		= 'Upload Media';
-	$media_searchform 	= '
-		<strong style="display:none;">Search Media</strong>
+	$media_title      = __( 'Media' );
+	$media_upload     = __( 'Upload Media' );
+	$media_searchform = '
+		<strong style="display:none;">'. __( 'Search Media', 'eab' ) .'</strong>
 		<form method="get" action="' . admin_url( 'upload.php?tab=search' ) . '"  class="alignleft dw_search" >
-		<input type="text" placeholder="Search Media"
-			onblur="this.value=(this.value==\'\') ? \'Search Media\' : this.value;"
-			onfocus="this.value=(this.value==\'Search Media\') ? \'\' : this.value;"
-			name="s" value="Search Media" class="text dw_search_input" />
-		' . $eab_go_button;
+		<input type="text" placeholder="'. __( 'Search Media', 'eab' ) .'"
+			onblur="this.value=(this.value==\'\') ? \''. __( 'Search Media', 'eab' ) .'\' : this.value;"
+			onfocus="this.value=(this.value==\''. __( 'Search Media', 'eab' ) .'\') ? \'\' : this.value;"
+			name="s" value="'. __( 'Search Media', 'eab' ) .'" class="text dw_search_input" />
+		<input type="submit" value="Go" class="button dw_search_go"  /></form>';
 
 	if ( is_admin() ) {
 		$wp_admin_bar->add_menu( array(
@@ -498,15 +490,14 @@ function dsgnwrks_add_users_menus() {
 	if ( ! current_user_can( 'edit_users' ) ) 		return;
 
 	global $wp_admin_bar;
-	global $eab_go_button;
 
-	$users_title 		= 'Users';
-	$users_add 			= 'Add New User';
-	$users_searchform 	= '
-		<strong style="display:none;">Search Users</strong>
+	$users_title      = __( 'Users' );
+	$users_add        = __( 'Add New User' );
+	$users_searchform = '
+		<strong style="display:none;">'. __( 'Search Users', 'eab' ) .'</strong>
 		<form method="get" action="' . admin_url( 'users.php?tab=search' ) . '"  class="alignleft dw_search" >
-		<input type="text" placeholder="Search Users" onblur="this.value=(this.value==\'\') ? \'Search Users\' : this.value;" onfocus="this.value=(this.value==\'Search Users\') ? \'\' : this.value;" value="Search Users" name="s" value="' . esc_attr( 'Search Users' ) . '" class="text dw_search_input" />
-		' . $eab_go_button;
+		<input type="text" placeholder="'. __( 'Search Users', 'eab' ) .'" onblur="this.value=(this.value==\'\') ? \''. __( 'Search Users', 'eab' ) .'\' : this.value;" onfocus="this.value=(this.value==\''. __( 'Search Users', 'eab' ) .'\') ? \'\' : this.value;" value="'. __( 'Search Users', 'eab' ) .'" name="s" value="' . esc_attr( ''. __( 'Search Users', 'eab' ) .'' ) . '" class="text dw_search_input" />
+		<input type="submit" value="Go" class="button dw_search_go"  /></form>';
 
 	if ( is_admin() ) {
 		$wp_admin_bar->add_menu( array(
@@ -542,6 +533,3 @@ function dsgnwrks_add_users_menus() {
 		) );
 	}
 }
-
-
-?>
