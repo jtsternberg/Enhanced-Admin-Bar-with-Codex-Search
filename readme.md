@@ -8,9 +8,9 @@
 **Author:** DsgnWrks  
 **Donate link:** http://j.ustin.co/rYL89n  
 **Requires at least:** 3.4  
-**Tested up to:** 3.5  
-**Stable tag:** 2.0.5.3  
-**Version:** 2.0.5.3  
+**Tested up to:** 4.3.1  
+**Stable tag:** 2.0.7  
+**Version:** 2.0.7  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
   
@@ -81,6 +81,12 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 ## Changelog ##
 
+### 2.0.7 ###
+* Update text-domain.
+
+### 2.0.6 ###
+* Do not enqueue CSS if admin bar is not showing.
+
 ### 2.0.5.3 ###
 * Fixes bug that was keeping codex search from working. Minor adjustments for new admin style. Remove dashboard widget. i18n the text strings.
 
@@ -127,44 +133,3 @@ If you run into a problem or have a question, contact me ([contact form](http://
 * Added an "Add New" menu item to Pages, Posts, Custom Post Types.
 * Added Settings sub-menus to the Settings dropdown in the Admin Bar Menu.
 * Added an option to add a custom menu to the Admin Bar from the built-in WordPress menu system.
-
-## Upgrade Notice ##
-
-### 2.0.5.3 ###
-* Fixes bug that was keeping codex search from working. Minor adjustments for new admin style. Remove dashboard widget. i18n the text strings.
-
-### 2.0.5.2 ###
-* Removed deprecated functions. Plugin now requires 3.4.
-
-### 2.0.5.1 ###
-Moves style block to correct spot (in admin_head).
-
-### 2.0.5 ###
-Fixes bug where only one custom post-type would display. Also now works for user roles other than Admins. Props to [@underblob](https://twitter.com/underblob)
-
-### 2.0.4 ###
-Fixed broken image link, and fixed some WP_DEBUG errors.
-
-### 2.0.3 ###
-Updates for WordPress 3.3.
-
-### 2.0.2 ###
-Remove empty variables.
-
-### 2.0.1 ###
-Updated Genesis menu icon css.
-
-### 2.0 ###
-Adds an options page to enable/disable plugin features along with a WordPress Forum search box option, a Genesis framework menu option, and removes features incompatible with WP 3.3.
-
-### 1.5.3 ###
-Fixed bug with duplicate menu classes. Also removed search forms from admin side. *future release: options page to enable/disable plugin features*
-
-### 1.5.2 ###
-Fixed small bug that didn't remove main menu item when a custom menu was removed.
-
-### 1.5.1 ###
-Fixed small bug that didn't remove main menu item when a custom menu was removed.
-
-### 1.5 ###
-Upgrade for more search options, and option to add your own custom menu.

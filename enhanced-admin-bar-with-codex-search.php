@@ -6,8 +6,8 @@ Description: This plugin adds convenient search fields to provide easy access to
 Author URI: http://dsgnwrks.pro
 Author: DsgnWrks
 Donate link: http://j.ustin.co/rYL89n
-Stable tag: 2.0.6
-Version: 2.0.6
+Stable tag: 2.0.7
+Version: 2.0.7
 Text Domain: enhanced-admin-bar-with-codex-search
 Domain Path: languages
 */
