@@ -10,8 +10,8 @@ Author: DsgnWrks
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 2.0.5.3
-Version: 2.0.5.3
+Stable tag: 2.0.6
+Version: 2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 7. View of admin bar on front-end with Genesis menu option enabled.
 
 == Changelog ==
+
+= 2.0.6 =
+* Do not enqueue CSS if admin bar is not showing.
 
 = 2.0.5.3 =
 * Fixes bug that was keeping codex search from working. Minor adjustments for new admin style. Remove dashboard widget. i18n the text strings.
@@ -104,6 +107,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 * Added an option to add a custom menu to the Admin Bar from the built-in WordPress menu system.
 
 == Upgrade Notice ==
+
+= 2.0.6 =
+* Do not enqueue CSS if admin bar is not showing.
 
 = 2.0.5.3 =
 * Fixes bug that was keeping codex search from working. Minor adjustments for new admin style. Remove dashboard widget. i18n the text strings.

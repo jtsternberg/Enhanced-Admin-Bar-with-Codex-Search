@@ -1,0 +1,23 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Misc #
+######################
+*.sass-cache/
+*.sublime-project
+*.svn
+*.sublime-workspace
+*.json
+*.rb
+debug.log
+
+# personal xcode files #
+######################
+JT.xcuserdatad
